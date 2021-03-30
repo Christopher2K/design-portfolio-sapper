@@ -6,7 +6,7 @@
   const bannerDuration: number = 1500
 
   // State
-  let displayAfterLoadBanner: boolean = true
+  let displayAfterLoadBanner: boolean = false
   let barSize: number = 0
 
   // Lifecycle
@@ -36,6 +36,33 @@
 
 <style lang="scss">
   @import 'theme.scss';
+
+  @font-face {
+    font-family: 'Romie TRIAL';
+    src: url('/fonts/RomieTRIAL-Regular.woff') format('woff'),
+      url('/fonts/RomieTRIAL-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Edwardian Script ITC';
+    src: url('/fonts/EdwardianScriptITC.woff') format('woff'),
+      url('/fonts/EdwardianScriptITC.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Lausanne';
+    src: url('/fonts/Lausanne-300.woff') format('woff'),
+      url('/fonts/Lausanne-300.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
   :global {
     @import 'reset.scss';

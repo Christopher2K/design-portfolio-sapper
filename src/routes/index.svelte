@@ -9,6 +9,7 @@
 
 <script lang="ts">
   import Carousel from 'components/Carousel.svelte'
+  import PresentationLine from 'components/PresentationLine.svelte'
 
   export let data: HomepageData
 </script>
@@ -20,15 +21,23 @@
 <div class="root">
   <div class="content">
     <Carousel items={data.carouselItems} />
-    <p style="height: 50px;">Conjecture</p>
+
+    <div id="projects">
+      <PresentationLine
+        fullName={data.fullName}
+        jobName={data.jobName}
+        email={data.mail}
+      />
+    </div>
   </div>
 </div>
 
 <style lang="scss">
   .root {
+    width: 100%;
     position: relative;
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
   }
 
@@ -36,5 +45,10 @@
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+  }
+
+  #projects {
+    padding: 0 3.5rem;
   }
 </style>

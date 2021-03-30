@@ -37,7 +37,7 @@
 <section>
   <button class="left" on:click={goToPreviousPicture} type="button" />
   <button class="right" on:click={goToNextPicture} type="button" />
-  <ul style="transform: translateX({-1 * currentIndex * 100}vw);">
+  <ul style="transform: translateX({-1 * currentIndex * 100}%);">
     {#each items as item}
       <li style="background-image: url('{item.image}');">
         <span style="color: {textColorByItemColor[item.color]}">{item.title}</span>
@@ -51,7 +51,7 @@
 
   section {
     position: relative;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
   }
 
@@ -77,6 +77,7 @@
     height: 100%;
     background-position: center center;
     background-size: cover;
+    font-size: 1.8rem;
   }
 
   span {
