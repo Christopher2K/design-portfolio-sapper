@@ -20,8 +20,21 @@
 <div class="root">
   <div class="content">
     <Carousel items={data.carouselItems} />
+    <p style="height: 50px;">Conjecture</p>
   </div>
 </div>
 
 <style lang="scss">
+  .root {
+    position: relative;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
 </style>
