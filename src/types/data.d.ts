@@ -1,13 +1,13 @@
 declare type CarouselItem = {
-  image: string;
-  color: "dark" | "light";
-  title: string;
-};
+  image: string
+  color: 'dark' | 'light'
+  title: string
+}
 
 declare type HomepageData = {
-  carouselItems: CarouselItem[];
-  footerHtml: string;
-  fullName: string;
-  jobName: string;
-  mail: string;
-};
+  carouselItems: CarouselItem[]
+  footerHtml: string
+  fullName: string
+  jobName: string
+  mail: string
+}

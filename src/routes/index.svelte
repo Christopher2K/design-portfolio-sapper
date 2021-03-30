@@ -1,16 +1,16 @@
 <script lang="ts" context="module">
-  import { getHomepageData } from "services/data";
+  import { getHomepageData } from 'services/data'
 
   export async function preload() {
-    const data = await getHomepageData();
-    return { data };
+    const data = await getHomepageData()
+    return { data }
   }
 </script>
 
 <script lang="ts">
-  import Carousel from "components/Carousel.svelte";
+  import Carousel from 'components/Carousel.svelte'
 
-  export let data: HomepageData;
+  export let data: HomepageData
 </script>
 
 <svelte:head>

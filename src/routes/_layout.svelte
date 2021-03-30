@@ -1,16 +1,16 @@
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { fade } from "svelte/transition";
+  import { onMount } from 'svelte'
+  import { fade } from 'svelte/transition'
 
   // State
-  let displayAfterLoadBanner = false;
+  let displayAfterLoadBanner = false
 
   // Lifecycle
   onMount(() => {
     setTimeout(() => {
-      displayAfterLoadBanner = false;
-    }, 2000);
-  });
+      displayAfterLoadBanner = false
+    }, 2000)
+  })
 </script>
 
 {#if displayAfterLoadBanner}
@@ -25,10 +25,10 @@
 </main>
 
 <style lang="scss">
-  @import "theme.scss";
+  @import 'theme.scss';
 
   :global {
-    @import "reset.scss";
+    @import 'reset.scss';
 
     html,
     body,
