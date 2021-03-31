@@ -95,11 +95,20 @@
       background-color: $white;
     }
 
+    h2 {
+      font-weight: normal;
+    }
+
     h2,
     p {
       color: $white;
       line-height: 3.41rem;
       font-size: 2.2rem;
+
+      @include mobileStyle {
+        font-size: 1.5rem;
+        line-height: 2.325rem;
+      }
     }
   }
 </style>

@@ -53,6 +53,10 @@
     position: relative;
     width: 100%;
     height: 100vh;
+
+    @include mobileStyle {
+      display: none;
+    }
   }
 
   ul {
@@ -78,11 +82,6 @@
     background-position: center center;
     background-size: cover;
     font-size: 1.8rem;
-
-    @include mobileStyle {
-      font-size: 1.4rem;
-      font-size: 1.4rem;
-    }
   }
 
   span {

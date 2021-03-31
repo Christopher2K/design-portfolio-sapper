@@ -122,5 +122,10 @@
     text-align: center;
     font-size: 1.4rem;
     line-height: 1.82rem;
+
+    @include mobileStyle {
+      font-size: 1.2rem;
+      line-height: 1.56rem;
+    }
   }
 </style>
