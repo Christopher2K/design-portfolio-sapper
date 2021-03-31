@@ -23,6 +23,7 @@
 
     width: 100%;
     margin-top: 6rem;
+    margin-bottom: 3rem;
   }
 
   h1,

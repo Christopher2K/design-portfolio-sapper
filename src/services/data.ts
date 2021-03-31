@@ -23,6 +23,25 @@ function transformRawHomepageData(d: Raw.HomepageData): HomepageData {
   }
 }
 
+function transformRawProjectsThumbnail(d: Raw.ProjectData[]): Thumbnail[] {
+  return d
+    .map(i => ({
+      categories: i.data.category_list.map(c => c.category),
+      image: i.data.thumbnail.url,
+      order: i.data.number,
+      title: i.data.name,
+      uid: i.uid,
+    }))
+    .sort(({ order: a }, { order: b }) => {
+      if (a < b) {
+        return 1
+      } else if (b < a) {
+        return -1
+      }
+      return 0
+    })
+}
+
 export async function getHomepageData() {
   const client = await getClient()
 
@@ -31,4 +50,12 @@ export async function getHomepageData() {
   )
 
   return transformRawHomepageData(response.data)
+}
+
+export async function getProjectsThumbnails() {
+  const client = await getClient()
+
+  const response = await client.query(Prismic.Predicates.at('document.type', 'project'))
+
+  return transformRawProjectsThumbnail(response.results as Raw.ProjectData[])
 }

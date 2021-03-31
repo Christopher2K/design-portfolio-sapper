@@ -11,3 +11,11 @@ declare type HomepageData = {
   jobName: string
   mail: string
 }
+
+declare type Thumbnail = {
+  categories: string[]
+  title: string
+  order: number
+  image: string
+  uid: string
+}
