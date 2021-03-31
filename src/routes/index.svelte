@@ -21,7 +21,6 @@
 <div class="root">
   <div class="content">
     <Carousel items={data.carouselItems} />
-
     <div id="projects">
       <PresentationLine
         fullName={data.fullName}
@@ -36,7 +35,7 @@
   .root {
     width: 100%;
     position: relative;
-    height: 100vh;
+    height: calc(100vh - 8rem);
     overflow-y: scroll;
     overflow-x: hidden;
   }
