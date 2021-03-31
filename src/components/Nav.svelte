@@ -42,6 +42,11 @@
     height: 8rem;
     padding: 0 5.5rem;
     background-color: $grey;
+
+    @include mobileStyle {
+      padding: 0 1.6rem;
+      height: 7rem;
+    }
   }
 
   section {
@@ -65,5 +70,10 @@
     font-size: 5rem;
     line-height: 6rem;
     color: $black;
+
+    @include mobileStyle {
+      font-size: 2.4rem;
+      line-height: 2.88rem;
+    }
   }
 </style>

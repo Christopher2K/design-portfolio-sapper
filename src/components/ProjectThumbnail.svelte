@@ -42,11 +42,21 @@
     font-weight: normal;
     line-height: 1.7rem;
     font-size: 1.7rem;
+
+    @include mobileStyle {
+      line-height: 1.5rem;
+      font-size: 1.5rem;
+    }
   }
 
   p {
     font-family: $secondary_font;
     font-size: 2.8rem;
     font-size: 2.52rem;
+
+    @include mobileStyle {
+      font-size: 2.6rem;
+      font-size: 2.34rem;
+    }
   }
 </style>

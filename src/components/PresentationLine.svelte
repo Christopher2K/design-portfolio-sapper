@@ -23,12 +23,20 @@
 
     width: 100%;
     margin-bottom: 3rem;
+
+    @include mobileStyle {
+      margin-bottom: 4rem;
+    }
   }
 
   h1,
   h2 {
     display: inline-block;
     font-weight: normal;
+
+    @include mobileStyle {
+      display: block;
+    }
   }
 
   h1 {
@@ -37,15 +45,31 @@
     line-height: 2.16rem;
     text-transform: uppercase;
     margin-right: 1.6rem;
+
+    @include mobileStyle {
+      font-size: 1.6rem;
+      line-height: 1.92rem;
+      margin-bottom: 2rem;
+      margin-right: 0;
+    }
   }
 
   h2 {
     font-size: 1.7rem;
+
+    @include mobileStyle {
+      font-size: 1.5rem;
+      line-height: 1.95rem;
+    }
   }
 
   a {
     font-size: 1.8rem;
     line-height: 2.005rem;
     color: $black;
+
+    @include mobileStyle {
+      display: none;
+    }
   }
 </style>

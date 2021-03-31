@@ -64,6 +64,10 @@
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: $grey;
+
+    @include mobileStyle {
+      height: calc(100vh - 7rem);
+    }
   }
 
   .content {
@@ -80,6 +84,14 @@
       left: 3.5rem;
       right: 3.5rem;
     }
+
+    @include mobileStyle {
+      padding: {
+        top: 3rem;
+        left: 1.6rem;
+        right: 1.6rem;
+      }
+    }
   }
 
   section {
@@ -89,6 +101,12 @@
     column-gap: 2rem;
     row-gap: 4rem;
     margin-bottom: 8rem;
+
+    @include mobileStyle {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      row-gap: 4rem;
+      margin-bottom: 6rem;
+    }
   }
 
   footer {
@@ -97,7 +115,7 @@
     justify-content: center;
     align-items: center;
 
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
   }
 
   :global(.index-footer p) {

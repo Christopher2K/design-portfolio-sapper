@@ -78,6 +78,11 @@
     background-position: center center;
     background-size: cover;
     font-size: 1.8rem;
+
+    @include mobileStyle {
+      font-size: 1.4rem;
+      font-size: 1.4rem;
+    }
   }
 
   span {
