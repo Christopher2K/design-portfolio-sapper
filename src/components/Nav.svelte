@@ -1,4 +1,17 @@
+<script lang="ts" context="module">
+  type EventMap = {
+    homepageProjectsClick: void
+  }
+</script>
+
 <script lang="ts">
+  import { createEventDispatcher } from 'svelte'
+
+  const dispatch = createEventDispatcher<EventMap>()
+
+  function onHomepageProjectClicked() {
+    dispatch('homepageProjectsClick')
+  }
 </script>
 
 <nav>
@@ -6,7 +19,7 @@
     <a href="/infos">Infos</a>
   </section>
   <section>
-    <a href="#projets">Projets</a>
+    <a href="/#projects" on:click|preventDefault={onHomepageProjectClicked}>Projets</a>
   </section>
   <section>
     <a href="https://twenitweni.fr" target="_blank">Blog</a>

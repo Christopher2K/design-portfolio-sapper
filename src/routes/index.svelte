@@ -10,21 +10,33 @@
 
 <script lang="ts">
   import Carousel from 'components/Carousel.svelte'
+  import Nav from 'components/Nav.svelte'
   import PresentationLine from 'components/PresentationLine.svelte'
   import ProjectThumbnail from 'components/ProjectThumbnail.svelte'
 
+  let rootElement: HTMLDivElement
+  let projectsContainer: HTMLDivElement
+
   export let data: HomepageData
   export let thumbnails: Thumbnail[]
+
+  function scrollToProjects() {
+    rootElement.scrollTo({
+      behavior: 'smooth',
+      top: projectsContainer.offsetTop,
+    })
+  }
 </script>
 
 <svelte:head>
   <title>Eunice Tchitchiama: Designer graphique, designer numérique</title>
 </svelte:head>
 
-<div class="root">
+<Nav on:homepageProjectsClick={scrollToProjects} />
+<div class="root" bind:this={rootElement}>
   <div class="content">
-    <Carousel items={data.carouselItems} />
-    <div id="projects">
+    <Carousel items={data.carouselItems} on:carouselEnd={scrollToProjects} />
+    <div id="projects" bind:this={projectsContainer}>
       <PresentationLine
         fullName={data.fullName}
         jobName={data.jobName}
@@ -35,7 +47,9 @@
           <ProjectThumbnail {...thumbnail} />
         {/each}
       </section>
-      <footer />
+      <footer class="index-footer">
+        {@html data.footerHtml}
+      </footer>
     </div>
   </div>
 </div>
@@ -61,7 +75,11 @@
   }
 
   #projects {
-    padding: 0 3.5rem;
+    padding: {
+      top: 6rem;
+      left: 3.5rem;
+      right: 3.5rem;
+    }
   }
 
   section {
@@ -70,5 +88,21 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 2rem;
     row-gap: 4rem;
+    margin-bottom: 8rem;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 4rem;
+  }
+
+  :global(.index-footer p) {
+    text-align: center;
+    font-size: 1.4rem;
+    line-height: 1.82rem;
   }
 </style>

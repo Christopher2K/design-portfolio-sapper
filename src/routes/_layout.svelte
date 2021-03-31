@@ -2,8 +2,6 @@
   import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
 
-  import Nav from 'components/Nav.svelte'
-
   // Const
   const bannerDuration: number = 1500
 
@@ -33,7 +31,6 @@
 {/if}
 
 <main>
-  <Nav />
   <slot />
 </main>
 
