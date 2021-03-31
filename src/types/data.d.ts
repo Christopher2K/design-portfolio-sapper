@@ -19,3 +19,20 @@ declare type Thumbnail = {
   image: string
   uid: string
 }
+
+declare type ProjectAsset = {
+  url: string
+  type: 'image' | 'video'
+}
+
+declare type ProjectData = {
+  uid: string
+  nextProject: string
+  prevProject: string
+  title: stringv
+  year: string
+  assets: ProjectAsset[]
+  categories: string[]
+  descriptionEn: string
+  descriptionFr: string
+}
