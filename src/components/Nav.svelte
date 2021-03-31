@@ -19,7 +19,11 @@
     <a href="/infos">Infos</a>
   </section>
   <section>
-    <a href="/#projects" on:click|preventDefault={onHomepageProjectClicked}>Projets</a>
+    <a
+      href="/#projects"
+      sapper:noscroll
+      on:click|preventDefault={onHomepageProjectClicked}>Projets</a
+    >
   </section>
   <section>
     <a href="https://twenitweni.fr" target="_blank">Blog</a>
