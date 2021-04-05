@@ -20,7 +20,7 @@
   }
 </script>
 
-<nav transition:fade={{ duration: 500 }}>
+<nav in:fade={{ duration: 500 }} out:fade={{ duration: 250 }}>
   <section>
     <NavItem href="/infos" title="Infos" />
   </section>

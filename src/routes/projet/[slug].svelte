@@ -17,6 +17,7 @@
   import ProjectAsset from 'components/ProjectAsset.svelte'
   import ProjectHeader from 'components/ProjectHeader.svelte'
   import ProjectDescription from 'components/ProjectDescription.svelte'
+  import ProjectNav from 'components/ProjectNav.svelte'
 
   export let data: ProjectData
   console.log(data)
@@ -26,14 +27,12 @@
   <title>Eunice Tchitchiama: {data.title}</title>
 </svelte:head>
 
+<ProjectNav prevLink="/projet/{data.prevProject}" nextLink="/projet/{data.nextProject}" />
 <div class="root" in:fade={{ duration: 500 }} out:fade={{ duration: 250 }}>
   <section>
     <ProjectHeader title={data.title} categories={data.categories} year={data.year} />
     <div class="descriptions">
-      <ProjectDescription
-        langAcronym="FR"
-        htmlContent={data.descriptionFr + data.descriptionFr + data.descriptionFr}
-      />
+      <ProjectDescription langAcronym="FR" htmlContent={data.descriptionFr} />
       <ProjectDescription langAcronym="EN" htmlContent={data.descriptionEn} />
     </div>
   </section>
@@ -50,6 +49,11 @@
   @import 'theme.scss';
 
   .root {
+    display: flex;
+    justify-content: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+
     width: 100%;
     height: 100vh;
     overflow: hidden;
@@ -57,21 +61,21 @@
   }
 
   .descriptions {
-    width: 70%;
-    max-width: 500px;
+    width: 83.333%;
     padding-left: 3.5rem;
   }
 
   section,
   ul {
-    float: left;
     width: 50%;
+    flex: 1 1 0;
     margin: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
   }
 
   section {
     height: calc(100vh - 8rem);
+    max-width: 1000px;
   }
 
   ul {

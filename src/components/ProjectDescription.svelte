@@ -5,7 +5,7 @@
 
 <article>
   <span>{langAcronym}</span>
-  <div>
+  <div class="descriptionHtml">
     {@html htmlContent}
   </div>
 </article>
@@ -27,5 +27,10 @@
     font-weight: normal;
     font-size: 1.7rem;
     line-height: 2.465rem;
+  }
+
+  .descriptionHtml :global(a) {
+    color: $black;
+    text-decoration: underline;
   }
 </style>

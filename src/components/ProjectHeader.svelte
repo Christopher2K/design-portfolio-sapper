@@ -13,8 +13,7 @@
   @import 'theme.scss';
 
   header {
-    width: 70%;
-    max-width: 500px;
+    width: 83.333%;
     padding-left: 3.5rem;
     padding-top: 3.5rem;
     margin-bottom: 6rem;

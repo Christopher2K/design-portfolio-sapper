@@ -46,9 +46,9 @@ function transformProjetRawData(d: Raw.ProjectData[]): ProjectData[] {
   function getProjectIDByNumber(number: number): string {
     let nb = number
     if (number < 1) {
-      nb = 1
+      nb = d.length - 1
     } else if (number > d.length) {
-      nb = d.length
+      nb = 1
     }
 
     return d.find(i => i.data.number === nb).uid
