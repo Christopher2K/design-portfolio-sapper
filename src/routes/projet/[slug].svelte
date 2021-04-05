@@ -13,15 +13,75 @@
 </script>
 
 <script lang="ts">
+  import { fade } from 'svelte/transition'
+  import ProjectAsset from 'components/ProjectAsset.svelte'
+  import ProjectHeader from 'components/ProjectHeader.svelte'
+  import ProjectDescription from 'components/ProjectDescription.svelte'
+
   export let data: ProjectData
   console.log(data)
 </script>
 
 <svelte:head>
-  <title>{data.title}</title>
+  <title>Eunice Tchitchiama: {data.title}</title>
 </svelte:head>
 
-<p>dsfmlksdf</p>
+<div class="root" in:fade={{ duration: 500 }} out:fade={{ duration: 250 }}>
+  <section>
+    <ProjectHeader title={data.title} categories={data.categories} year={data.year} />
+    <div class="descriptions">
+      <ProjectDescription
+        langAcronym="FR"
+        htmlContent={data.descriptionFr + data.descriptionFr + data.descriptionFr}
+      />
+      <ProjectDescription langAcronym="EN" htmlContent={data.descriptionEn} />
+    </div>
+  </section>
+  <ul>
+    {#each data.assets as asset}
+      <li>
+        <ProjectAsset {asset} />
+      </li>
+    {/each}
+  </ul>
+</div>
 
 <style lang="scss">
+  @import 'theme.scss';
+
+  .root {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: $grey;
+  }
+
+  .descriptions {
+    width: 70%;
+    max-width: 500px;
+    padding-left: 3.5rem;
+  }
+
+  section,
+  ul {
+    float: left;
+    width: 50%;
+    margin: 0;
+    overflow-y: scroll;
+  }
+
+  section {
+    height: calc(100vh - 8rem);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+  }
+
+  li {
+    width: 100%;
+  }
 </style>

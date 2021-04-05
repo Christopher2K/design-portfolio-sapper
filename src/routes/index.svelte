@@ -9,6 +9,7 @@
 </script>
 
 <script lang="ts">
+  import { fade } from 'svelte/transition'
   import Carousel from 'components/Carousel.svelte'
   import Nav from 'components/Nav.svelte'
   import PresentationLine from 'components/PresentationLine.svelte'
@@ -33,7 +34,12 @@
 </svelte:head>
 
 <Nav on:homepageProjectsClick={scrollToProjects} />
-<div class="root" bind:this={rootElement}>
+<div
+  class="root"
+  bind:this={rootElement}
+  in:fade={{ duration: 500 }}
+  out:fade={{ duration: 250 }}
+>
   <div class="content">
     <Carousel items={data.carouselItems} on:carouselEnd={scrollToProjects} />
     <div id="projects" bind:this={projectsContainer}>

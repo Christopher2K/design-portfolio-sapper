@@ -2,31 +2,33 @@
   type EventMap = {
     homepageProjectsClick: void
   }
+
+  type Page = 'index' | 'project' | 'infos'
 </script>
 
 <script lang="ts">
   import { createEventDispatcher } from 'svelte'
+  import { fade } from 'svelte/transition'
+
+  import NavItem from './NavItem.svelte'
 
   const dispatch = createEventDispatcher<EventMap>()
 
-  function onHomepageProjectClicked() {
+  function onHomepageProjectClicked(e: MouseEvent) {
+    e.preventDefault()
     dispatch('homepageProjectsClick')
   }
 </script>
 
-<nav>
+<nav transition:fade={{ duration: 500 }}>
   <section>
-    <a href="/infos">Infos</a>
+    <NavItem href="/infos" title="Infos" />
   </section>
   <section>
-    <a
-      href="/#projects"
-      sapper:noscroll
-      on:click|preventDefault={onHomepageProjectClicked}>Projets</a
-    >
+    <NavItem href="/#projects" on:click={onHomepageProjectClicked} title="Projets" />
   </section>
   <section>
-    <a href="https://twenitweni.fr" target="_blank">Blog</a>
+    <NavItem href="https://twenitweni.fr" target="_blank" title="Blog" />
   </section>
 </nav>
 
@@ -65,19 +67,6 @@
 
     &:last-of-type {
       justify-content: flex-end;
-    }
-  }
-
-  a {
-    font-family: $title_font;
-    text-transform: uppercase;
-    font-size: 5rem;
-    line-height: 6rem;
-    color: $black;
-
-    @include mobileStyle {
-      font-size: 2.4rem;
-      line-height: 2.88rem;
     }
   }
 </style>
