@@ -18,9 +18,17 @@
   import ProjectHeader from 'components/ProjectHeader.svelte'
   import ProjectDescription from 'components/ProjectDescription.svelte'
   import ProjectNav from 'components/ProjectNav.svelte'
+  import ProjectArrows from 'components/ProjectArrows.svelte'
 
   export let data: ProjectData
-  console.log(data)
+
+  let rootElm: HTMLDivElement
+
+  $: if (data && rootElm) {
+    rootElm.scrollTo({
+      top: 0,
+    })
+  }
 </script>
 
 <svelte:head>
@@ -28,7 +36,12 @@
 </svelte:head>
 
 <ProjectNav prevLink="/projet/{data.prevProject}" nextLink="/projet/{data.nextProject}" />
-<div class="root" in:fade={{ duration: 500 }} out:fade={{ duration: 250 }}>
+<div
+  class="root"
+  in:fade={{ duration: 500 }}
+  out:fade={{ duration: 250 }}
+  bind:this={rootElm}
+>
   <section>
     <ProjectHeader title={data.title} categories={data.categories} year={data.year} />
     <div class="descriptions">
@@ -42,6 +55,12 @@
         <ProjectAsset {asset} />
       </li>
     {/each}
+    <li class="arrow">
+      <ProjectArrows
+        prevLink="/projet/{data.prevProject}"
+        nextLink="/projet/{data.nextProject}"
+      />
+    </li>
   </ul>
 </div>
 
@@ -50,19 +69,28 @@
 
   .root {
     display: flex;
-    justify-content: row;
+    flex-direction: row;
     justify-content: flex-start;
     align-items: flex-start;
 
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    overflow-y: auto;
     background-color: $grey;
+
+    @include mobileStyle {
+      display: block;
+      height: calc(100vh - 7rem);
+    }
   }
 
   .descriptions {
     width: 83.333%;
     padding-left: 3.5rem;
+
+    @include mobileStyle {
+      display: none;
+    }
   }
 
   section,
@@ -71,11 +99,20 @@
     flex: 1 1 0;
     margin: 0;
     overflow-y: auto;
+
+    @include mobileStyle {
+      width: 100%;
+      flex: initial;
+    }
   }
 
   section {
     height: calc(100vh - 8rem);
     max-width: 1000px;
+
+    @include mobileStyle {
+      height: auto;
+    }
   }
 
   ul {
@@ -83,9 +120,14 @@
     padding: 0;
     margin: 0;
     height: 100vh;
+
+    @include mobileStyle {
+      height: initial;
+    }
   }
 
   li {
+    display: flex;
     width: 100%;
   }
 </style>

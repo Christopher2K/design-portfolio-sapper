@@ -4,8 +4,8 @@
 </script>
 
 <div>
-  <a href={prevLink}>← Préc.</a>
-  <a href={nextLink}>Suiv. →</a>
+  <a href={prevLink} sapper:noscroll>← Préc.</a>
+  <a href={nextLink} sapper:noscroll>Suiv. →</a>
 </div>
 
 <style lang="scss">
@@ -20,6 +20,11 @@
     align-self: flex-end;
     padding-bottom: 1.5rem;
     width: 130px;
+
+    @include mobileStyle {
+      width: 100%;
+      padding: 3rem 1.6rem;
+    }
   }
 
   a {

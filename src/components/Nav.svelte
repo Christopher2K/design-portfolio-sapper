@@ -14,9 +14,13 @@
 
   const dispatch = createEventDispatcher<EventMap>()
 
+  export let customHomepageBehavior: boolean = true
+
   function onHomepageProjectClicked(e: MouseEvent) {
-    e.preventDefault()
-    dispatch('homepageProjectsClick')
+    if (customHomepageBehavior) {
+      e.preventDefault()
+      dispatch('homepageProjectsClick')
+    }
   }
 </script>
 

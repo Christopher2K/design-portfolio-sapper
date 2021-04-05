@@ -8,7 +8,7 @@
   <div>
     <iframe
       title="TODO"
-      src="https://player.vimeo.com/video/531825168?color=C0B283&title=0&byline=0&portrait=0&badge=0"
+      src={asset.url}
       frameborder="0"
       allow="autoplay; fullscreen; picture-in-picture"
       allowfullscreen
