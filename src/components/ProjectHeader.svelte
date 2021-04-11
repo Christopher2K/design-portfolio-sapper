@@ -5,14 +5,24 @@
 </script>
 
 <header>
-  <h1>{title}</h1>
-  <h2>{categories.join(', ')}, {year}</h2>
+  <div>
+    <h1>{title}</h1>
+    <h2>{categories.join(', ')}, {year}</h2>
+  </div>
+  <button type="button" on:click>
+    <img src="/icons/plus.svg" alt="Description" />
+  </button>
 </header>
 
 <style lang="scss">
   @import 'theme.scss';
 
   header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
     width: 83.333%;
     padding-left: 3.5rem;
     padding-top: 3.5rem;
@@ -50,6 +60,17 @@
     @include mobileStyle {
       font-size: 1.3rem;
       line-height: 1.885rem;
+    }
+  }
+
+  button {
+    @include reset-button-style;
+    display: none;
+    flex-shrink: 0;
+    margin-left: 1rem;
+
+    @include mobileStyle {
+      display: block;
     }
   }
 </style>

@@ -23,11 +23,20 @@
   export let data: ProjectData
 
   let rootElm: HTMLDivElement
+  let mobileDescriptionOpen: boolean = false
 
   $: if (data && rootElm) {
     rootElm.scrollTo({
       top: 0,
     })
+  }
+
+  function openDescription() {
+    mobileDescriptionOpen = true
+  }
+
+  function closeDescription() {
+    mobileDescriptionOpen = false
   }
 </script>
 
@@ -43,8 +52,18 @@
   bind:this={rootElm}
 >
   <section>
-    <ProjectHeader title={data.title} categories={data.categories} year={data.year} />
-    <div class="descriptions">
+    <ProjectHeader
+      title={data.title}
+      categories={data.categories}
+      year={data.year}
+      on:click={openDescription}
+    />
+    <div class="descriptions" class:mobileDescriptionOpen>
+      <header>
+        <button type="button" on:click={closeDescription}>
+          <img src="/icons/close.svg" alt="Fermer" />
+        </button>
+      </header>
       <ProjectDescription langAcronym="FR" htmlContent={data.descriptionFr} />
       <ProjectDescription langAcronym="EN" htmlContent={data.descriptionEn} />
     </div>
@@ -90,7 +109,41 @@
 
     @include mobileStyle {
       display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 500;
+      padding-top: 3.5rem;
+      padding-left: 1.6rem;
+      padding-right: 1.6rem;
+
+      width: 100vw;
+      height: 100vh;
+      overflow-y: auto;
+      background-color: $grey;
+
+      &.mobileDescriptionOpen {
+        display: block;
+      }
     }
+  }
+
+  .descriptions header {
+    display: none;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-bottom: 4.1rem;
+
+    @include mobileStyle {
+      display: flex;
+    }
+  }
+
+  header button {
+    @include reset-button-style;
+    margin-left: auto;
   }
 
   section,
@@ -129,5 +182,13 @@
   li {
     display: flex;
     width: 100%;
+  }
+
+  .arrow {
+    display: none;
+
+    @include mobileStyle {
+      display: flex;
+    }
   }
 </style>
