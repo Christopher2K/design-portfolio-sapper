@@ -36,3 +36,44 @@ declare type ProjectData = {
   descriptionEn: string
   descriptionFr: string
 }
+
+declare type SocialNetwork = {
+  name: string
+  link: string
+}
+
+declare type Publication = {
+  date: string
+  title: string
+  link: string
+}
+
+declare type Degree = {
+  date: string
+  name: string
+  school: string
+}
+
+declare type Exhibit = {
+  date: string
+  title: string
+  place: string
+}
+
+declare type InfoSet = {
+  bio: string
+  domains: string
+  publications: Publication[]
+  degrees: Degree[]
+  exhibits: Exhibit[]
+}
+
+declare type InfoPageData = {
+  color: string
+  name: string
+  email: string
+  media?: string
+  socialsNetworks: SocialNetwork[]
+  french: InfoSet
+  english: InfoSet
+}

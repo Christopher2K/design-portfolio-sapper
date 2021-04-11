@@ -70,6 +70,57 @@ function transformProjetRawData(d: Raw.ProjectData[]): ProjectData[] {
   }))
 }
 
+function tranformInformationPageRawData(d: Raw.InfosPageData): InfoPageData {
+  return {
+    color: d.color,
+    email: d.email,
+    name: d.name,
+    media: d.media && d.media.url && d.media.url !== '' ? d.media.url : undefined,
+    socialsNetworks: d.social_networks.map(sn => ({
+      link: sn.network_link.url,
+      name: sn.network_name,
+    })),
+    french: {
+      bio: PrismicDOM.RichText.asHtml(d.fr_bio),
+      domains: d.fr_domains,
+      publications: d.fr_publications.map(p => ({
+        date: p.fr_publication_date,
+        link: PrismicDOM.RichText.asHtml(p.fr_publication_link),
+        title: p.fr_publication_title,
+      })),
+      degrees: d.fr_degrees.map(de => ({
+        date: de.fr_degree_date,
+        name: de.fr_degree_name,
+        school: de.fr_degree_school,
+      })),
+      exhibits: d.fr_exhibits.map(e => ({
+        date: e.fr_exhibit_date,
+        place: e.fr_exhibit_place,
+        title: e.fr_exhibit_title,
+      })),
+    },
+    english: {
+      bio: PrismicDOM.RichText.asHtml(d.en_bio),
+      domains: d.en_domains,
+      publications: d.en_publications.map(p => ({
+        date: p.en_publication_date,
+        link: PrismicDOM.RichText.asHtml(p.en_publication_link),
+        title: p.en_publication_title,
+      })),
+      degrees: d.en_degrees.map(de => ({
+        date: de.en_degree_date,
+        name: de.en_degree_name,
+        school: de.en_degree_school,
+      })),
+      exhibits: d.en_exhibits.map(e => ({
+        date: e.en_exhibit_date,
+        place: e.en_exhibit_place,
+        title: e.en_exhibit_title,
+      })),
+    },
+  }
+}
+
 export async function getHomepageData() {
   const client = await getClient()
 
@@ -98,4 +149,14 @@ export async function getSingleProject(uid: string): Promise<ProjectData | undef
   const project = data.find(p => p.uid === uid)
 
   return project
+}
+
+export async function getInfosPageData() {
+  const client = await getClient()
+
+  const response = await client.queryFirst(
+    Prismic.Predicates.at('document.type', 'information_page'),
+  )
+
+  return tranformInformationPageRawData(response.data)
 }
