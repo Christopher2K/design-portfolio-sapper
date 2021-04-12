@@ -19,6 +19,11 @@
     width: 50%;
     max-width: 1000px;
     height: 8rem;
+
+    @include mobileStyle {
+      background-color: $green;
+      width: 100%;
+    }
   }
 
   .content {
@@ -30,5 +35,9 @@
     width: 83.33%;
     height: 100%;
     padding-left: 3.5rem;
+
+    @include mobileStyle {
+      padding-left: 1.6rem;
+    }
   }
 </style>
