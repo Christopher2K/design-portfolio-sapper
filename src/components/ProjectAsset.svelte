@@ -20,9 +20,9 @@
   @import 'theme.scss';
 
   img {
+    display: block;
     width: 100%;
-    height: auto;
-    float: left;
+    height: 100%;
   }
 
   div {
