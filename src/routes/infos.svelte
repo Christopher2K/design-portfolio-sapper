@@ -61,6 +61,12 @@
     width: 100%;
     height: 100vh;
     background-color: $green;
+
+    @include mobileStyle {
+      display: block;
+      height: calc(100vh - 7rem);
+      overflow-y: auto;
+    }
   }
 
   section {
@@ -83,11 +89,24 @@
 
     @include mobileStyle {
       height: auto;
+      padding: {
+        left: 1.6rem;
+        right: 1.6rem;
+      }
     }
   }
 
   section:last-of-type {
     padding-right: 3.5rem;
     height: 100vh;
+
+    @include mobileStyle {
+      height: auto;
+      padding: {
+        top: 4.5rem;
+        left: 1.6rem;
+        right: 1.6rem;
+      }
+    }
   }
 </style>

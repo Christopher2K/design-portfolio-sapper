@@ -62,6 +62,11 @@
     grid-template-columns: 3rem minmax(0, 1fr);
     column-gap: 2rem;
     width: 100%;
+
+    @include mobileStyle {
+      grid-template-columns: 2rem minmax(0, 1fr);
+      column-gap: 1.2rem;
+    }
   }
 
   span {
@@ -69,6 +74,11 @@
     font-family: $primary-font;
     font-size: 1.9rem;
     line-height: 2.755rem;
+
+    @include mobileStyle {
+      font-size: 1.5rem;
+      line-height: 2.175rem;
+    }
   }
 
   header {
@@ -78,6 +88,11 @@
     line-height: 2.9rem;
     margin-bottom: 3.5rem;
     font-weight: 300;
+
+    @include mobileStyle {
+      font-size: 1.5rem;
+      line-height: 2.175rem;
+    }
   }
 
   h2 {
@@ -88,6 +103,11 @@
     margin-bottom: 6rem;
     text-transform: uppercase;
     font-weight: 400;
+
+    @include mobileStyle {
+      font-size: 1.5rem;
+      line-height: 2.175rem;
+    }
   }
 
   .group {
@@ -101,6 +121,11 @@
     color: $white;
     font-weight: 300;
     text-transform: uppercase;
+
+    @include mobileStyle {
+      font-size: 1.5rem;
+      line-height: 2.175rem;
+    }
   }
 
   ul {
@@ -114,6 +139,11 @@
     color: $white;
     font-weight: 300;
 
+    @include mobileStyle {
+      font-size: 1.4rem;
+      line-height: 2.03rem;
+    }
+
     & :global(p) {
       display: inline;
     }
@@ -125,6 +155,11 @@
       color: $white;
       line-height: 2.61rem;
       font-weight: 300;
+
+      @include mobileStyle {
+        font-size: 1.4rem;
+        line-height: 2.03rem;
+      }
     }
   }
 </style>
