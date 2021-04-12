@@ -99,6 +99,7 @@
     @include mobileStyle {
       display: block;
       height: calc(100vh - 7rem);
+      overflow-y: auto;
     }
   }
 
