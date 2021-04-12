@@ -75,13 +75,13 @@
   .root {
     width: 100%;
     position: relative;
-    height: calc(100vh - 8rem);
+    height: calc(100% - 8rem);
     overflow-y: scroll;
     overflow-x: hidden;
     background-color: $grey;
 
     @include mobileStyle {
-      height: calc(100vh - 7rem);
+      height: calc(100% - 7rem);
     }
   }
 

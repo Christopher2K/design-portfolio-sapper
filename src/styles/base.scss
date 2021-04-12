@@ -2,9 +2,10 @@
 
 html,
 body,
-main {
+main,
+#sapper {
   overflow: hidden;
-  height: 100vh;
+  height: 100%;
   width: 100%;
 
   font-family: $primary_font;

@@ -59,12 +59,12 @@
     align-items: flex-start;
 
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-color: $green;
 
     @include mobileStyle {
       display: block;
-      height: calc(100vh - 7rem);
+      height: calc(100% - 7rem);
       overflow-y: auto;
     }
   }
@@ -83,7 +83,7 @@
   }
 
   section:first-of-type {
-    height: calc(100vh - 8rem);
+    height: calc(100% - 8rem);
     max-width: 1000px;
     padding-left: 3.5rem;
 
@@ -98,7 +98,7 @@
 
   section:last-of-type {
     padding-right: 3.5rem;
-    height: 100vh;
+    height: 100%;
 
     @include mobileStyle {
       height: auto;
