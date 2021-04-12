@@ -27,7 +27,11 @@ function transformRawProjectsThumbnail(d: Raw.ProjectData[]): Thumbnail[] {
   return d
     .map(i => ({
       categories: i.data.category_list.map(c => c.category),
-      image: i.data.thumbnail.url,
+      image: {
+        url: i.data.thumbnail.url,
+        width: i.data.thumbnail.dimensions.width,
+        height: i.data.thumbnail.dimensions.height,
+      },
       order: i.data.number,
       title: i.data.name,
       uid: i.uid,
@@ -63,6 +67,8 @@ function transformProjetRawData(d: Raw.ProjectData[]): ProjectData[] {
     assets: i.data.assets.map(a => ({
       type: a.type,
       url: a.type === 'video' ? a.video_link.url : a.image.url,
+      width: a.image?.dimensions?.width,
+      height: a.image?.dimensions?.height,
     })),
     categories: i.data.category_list.map(c => c.category),
     descriptionFr: PrismicDOM.RichText.asHtml(i.data.description_fr),

@@ -3,7 +3,7 @@
 </script>
 
 {#if asset.type === 'image'}
-  <img src={asset.url} alt="TODO" />
+  <img src={asset.url} alt="TODO" width={asset.width} height={asset.height} />
 {:else}
   <div>
     <iframe

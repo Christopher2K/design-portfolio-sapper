@@ -1,11 +1,16 @@
 declare namespace Raw {
   type PrismicRichText = unknown[]
 
-  type PrismicImage = {
+  type PrismicLink = {
     url: string
   }
 
-  type PrismicLink = PrismicImage
+  type PrismicImage = PrismicLink & {
+    dimensions: {
+      width: number
+      height: number
+    }
+  }
 
   type CarouselItem = {
     image: PrismicImage

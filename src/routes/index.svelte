@@ -9,6 +9,7 @@
 </script>
 
 <script lang="ts">
+  import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
   import Carousel from 'components/Carousel.svelte'
   import Nav from 'components/Nav.svelte'
@@ -27,6 +28,14 @@
       top: projectsContainer.offsetTop,
     })
   }
+
+  onMount(() => {
+    if (window.location.hash === '#projects') {
+      rootElement.scrollTo({
+        top: projectsContainer.offsetTop,
+      })
+    }
+  })
 </script>
 
 <svelte:head>

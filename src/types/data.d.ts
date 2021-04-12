@@ -1,3 +1,9 @@
+declare type MyImageData = {
+  url: string
+  width: number
+  height: number
+}
+
 declare type CarouselItem = {
   image: string
   color: 'dark' | 'light'
@@ -16,11 +22,13 @@ declare type Thumbnail = {
   categories: string[]
   title: string
   order: number
-  image: string
+  image: MyImageData
   uid: string
 }
 
 declare type ProjectAsset = {
+  width: number
+  height: number
   url: string
   type: 'image' | 'video'
 }
@@ -29,7 +37,7 @@ declare type ProjectData = {
   uid: string
   nextProject: string
   prevProject: string
-  title: stringv
+  title: string
   year: string
   assets: ProjectAsset[]
   categories: string[]

@@ -1,13 +1,13 @@
 <script lang="ts">
   export let uid: string
-  export let image: string
+  export let image: MyImageData
   export let title: string
   export let categories: string[]
 </script>
 
 <a href="/projet/{uid}">
   <article>
-    <img src={image} alt={title} />
+    <img src={image.url} width={image.width} height={image.height} alt={title} />
     <footer>
       <h3>{title}</h3>
       <p>{categories.join(', ')}</p>
