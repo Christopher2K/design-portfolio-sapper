@@ -40,6 +40,7 @@
 
 <svelte:head>
   <title>Eunice Tchitchiama: Designer graphique, designer numérique</title>
+  <meta name="robots" content="index" />
 </svelte:head>
 
 <Nav on:homepageProjectsClick={scrollToProjects} />
