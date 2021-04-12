@@ -3,9 +3,10 @@
   export let href: string
   export let target: string
   export let light: boolean = false
+  export let rel: string
 </script>
 
-<a {href} {target} on:click class:light>{title}</a>
+<a {href} {target} {rel} on:click class:light>{title}</a>
 
 <style lang="scss">
   @import 'theme.scss';

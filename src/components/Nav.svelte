@@ -32,7 +32,7 @@
     <NavItem href="/#projects" on:click={onHomepageProjectClicked} title="Projets" />
   </section>
   <section>
-    <NavItem href="https://twenitweni.fr" target="_blank" title="Blog" />
+    <NavItem href="https://twenitweni.fr" target="_blank" title="Blog" rel="noopener" />
   </section>
 </nav>
 

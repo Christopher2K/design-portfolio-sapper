@@ -21,7 +21,7 @@
     <ul>
       {#each socialNetworks as sn}
         <li>
-          <a href={sn.link} target="_blank">{sn.name}</a>
+          <a href={sn.link} target="_blank" rel="noopener">{sn.name}</a>
         </li>
       {/each}
     </ul>
