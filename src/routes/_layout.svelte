@@ -6,7 +6,7 @@
   const bannerDuration: number = 1500
 
   // State
-  let displayAfterLoadBanner: boolean = false
+  let displayAfterLoadBanner: boolean = true
   let barSize: number = 0
 
   // Lifecycle
