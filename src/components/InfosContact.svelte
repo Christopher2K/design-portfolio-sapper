@@ -6,7 +6,10 @@
 </script>
 
 <div class="root">
-  <h1>{fullName}</h1>
+  <div>
+    <h1>{fullName}</h1>
+    <a href="mailto:{email}">{email}</a>
+  </div>
 
   <div>
     <h3>Contact</h3>
@@ -41,10 +44,20 @@
     line-height: 2.755rem;
     text-decoration: none;
     font-weight: normal;
+
+    @include mobileStyle {
+      font-size: 1.5rem;
+      line-height: 2.175rem;
+    }
   }
 
   .root {
     width: 100%;
+
+    @include mobileStyle {
+      display: grid;
+      grid-template-columns: 50% 50% 100%;
+    }
   }
 
   h1,
@@ -57,9 +70,45 @@
   h1,
   div:not(.root) {
     margin-bottom: 3.5rem;
+
+    @include mobileStyle {
+      margin-bottom: 0;
+    }
   }
 
   ul {
     @include reset-list-style;
+
+    @include mobileStyle {
+      display: inline-block;
+    }
+  }
+
+  h3 {
+    @include mobileStyle {
+      display: none;
+    }
+  }
+
+  div:not(.root):nth-of-type(1) {
+    & a {
+      display: none;
+
+      @include mobileStyle {
+        display: block;
+      }
+    }
+  }
+
+  div:not(.root):nth-of-type(2) {
+    @include mobileStyle {
+      display: none;
+    }
+  }
+
+  div:not(.root):nth-of-type(3) {
+    @include mobileStyle {
+      justify-self: end;
+    }
   }
 </style>
