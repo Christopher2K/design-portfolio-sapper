@@ -75,6 +75,7 @@ function transformProjetRawData(d: Raw.ProjectData[]): ProjectData[] {
     descriptionEn: PrismicDOM.RichText.asHtml(i.data.description_en),
     shortDescription:
       PrismicDOM.RichText.asText(i.data.description_fr).substring(0, 197) + '...',
+    thumbnailUrl: i.data.thumbnail.url,
   }))
 }
 

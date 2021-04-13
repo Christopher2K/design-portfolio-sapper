@@ -43,7 +43,11 @@
 
 <svelte:head>
   <title>Eunice Tchitchiama: {data.title}</title>
-  <SEOHead title="Eunice Tchitchiama: {data.title}" description={data.shortDescription} />
+  <SEOHead
+    title="Eunice Tchitchiama: {data.title}"
+    description={data.shortDescription}
+    image={data.thumbnailUrl}
+  />
 </svelte:head>
 
 <ProjectNav prevLink="/projet/{data.prevProject}" nextLink="/projet/{data.nextProject}" />
