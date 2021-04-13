@@ -43,6 +43,7 @@ declare type ProjectData = {
   categories: string[]
   descriptionEn: string
   descriptionFr: string
+  shortDescription: string
 }
 
 declare type SocialNetwork = {

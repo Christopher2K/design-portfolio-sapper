@@ -11,6 +11,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { fade } from 'svelte/transition'
+  import SEOHead from 'components/SEOHead.svelte'
   import Carousel from 'components/Carousel.svelte'
   import Nav from 'components/Nav.svelte'
   import PresentationLine from 'components/PresentationLine.svelte'
@@ -39,8 +40,8 @@
 </script>
 
 <svelte:head>
-  <title>Eunice Tchitchiama: Designer graphique, designer numérique</title>
   <meta name="robots" content="index" />
+  <SEOHead title="Eunice Tchitchiama: Designer graphique, designer numérique" />
 </svelte:head>
 
 <Nav on:homepageProjectsClick={scrollToProjects} />

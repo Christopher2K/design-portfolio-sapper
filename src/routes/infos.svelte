@@ -9,6 +9,7 @@
 
 <script lang="ts">
   import { fade } from 'svelte/transition'
+  import SEOHead from 'components/SEOHead.svelte'
   import InfosNav from 'components/InfosNav.svelte'
   import InfosContact from 'components/InfosContact.svelte'
   import Curriculum from 'components/Curriculum.svelte'
@@ -17,7 +18,7 @@
 </script>
 
 <svelte:head>
-  <title>Eunice Tchitchiama: Mon parcours</title>
+  <SEOHead title="Eunice Tchitchiama: Mon parcours" />
 </svelte:head>
 
 <InfosNav />

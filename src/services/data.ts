@@ -73,6 +73,8 @@ function transformProjetRawData(d: Raw.ProjectData[]): ProjectData[] {
     categories: i.data.category_list.map(c => c.category),
     descriptionFr: PrismicDOM.RichText.asHtml(i.data.description_fr),
     descriptionEn: PrismicDOM.RichText.asHtml(i.data.description_en),
+    shortDescription:
+      PrismicDOM.RichText.asText(i.data.description_fr).substring(0, 197) + '...',
   }))
 }
 

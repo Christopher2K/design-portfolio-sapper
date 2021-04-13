@@ -14,6 +14,7 @@
 
 <script lang="ts">
   import { fade } from 'svelte/transition'
+  import SEOHead from 'components/SEOHead.svelte'
   import ProjectAsset from 'components/ProjectAsset.svelte'
   import ProjectHeader from 'components/ProjectHeader.svelte'
   import ProjectDescription from 'components/ProjectDescription.svelte'
@@ -42,6 +43,7 @@
 
 <svelte:head>
   <title>Eunice Tchitchiama: {data.title}</title>
+  <SEOHead title="Eunice Tchitchiama: {data.title}" description={data.shortDescription} />
 </svelte:head>
 
 <ProjectNav prevLink="/projet/{data.prevProject}" nextLink="/projet/{data.nextProject}" />
