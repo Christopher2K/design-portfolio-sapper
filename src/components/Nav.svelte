@@ -2,8 +2,6 @@
   type EventMap = {
     homepageProjectsClick: void
   }
-
-  type Page = 'index' | 'project' | 'infos'
 </script>
 
 <script lang="ts">
