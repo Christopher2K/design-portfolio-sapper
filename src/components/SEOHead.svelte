@@ -2,7 +2,7 @@
   export let title: string
   export let description: string =
     "Designer graphique & numérique basée à Paris, spécialisée dans la création d'identité visuelle, interface numérique et objets imprimés."
-  export let image: string = 'https://eunice-tchm.design/banner.png'
+  export let image: string = 'https://eunice-tchm.design/banner.jpeg'
 </script>
 
 <title>{title}</title>
