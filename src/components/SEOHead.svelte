@@ -6,12 +6,12 @@
 </script>
 
 <title>{title}</title>
-<meta name="og:title" property="og:title" content={title} />
-<meta name="twitter:title" property="twitter:title" content={title} />
+<meta property="og:title" content={title} />
+<meta name="twitter:title" content={title} />
 
-<meta name="og:image" property="og:image" content={image} />
-<meta name="twitter:image" property="twitter:image" content={image} />
+<meta property="og:image" content={image} />
+<meta name="twitter:image" content={image} />
 
 <meta name="description" content={description} />
-<meta name="og:description" property="og:description" content={description} />
-<meta name="twitter:description" property="twitter:description" content={description} />
+<meta property="og:description" content={description} />
+<meta name="twitter:description" content={description} />
