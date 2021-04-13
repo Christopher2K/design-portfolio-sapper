@@ -16,6 +16,24 @@
 
     <link rel="icon" type="image/png" href="favicon.png" />
 
+    <script>
+      if (
+        !sessionStorage.getItem('_swa') &&
+        document.referrer.indexOf(location.protocol + '//' + location.host) !== 0
+      ) {
+        fetch(
+          'https://counter.dev/track?' +
+            new URLSearchParams({
+              referrer: document.referrer,
+              screen: screen.width + 'x' + screen.height,
+              user: 'Christopher2k',
+              utcoffset: '2',
+            }),
+        )
+      }
+      sessionStorage.setItem('_swa', '1')
+    </script>
+
     <!-- Sapper creates a <script> tag containing `src/client.js`
 	     and anything else it needs to hydrate the app and
 	     initialise the router -->
@@ -34,23 +52,5 @@
     <!-- The application will be rendered inside this element,
 	     because `src/client.js` references it -->
     <div id="sapper">%sapper.html%</div>
-
-    <script>
-      if (
-        !sessionStorage.getItem('_swa') &&
-        document.referrer.indexOf(location.protocol + '//' + location.host) !== 0
-      ) {
-        fetch(
-          'https://counter.dev/track?' +
-            new URLSearchParams({
-              referrer: document.referrer,
-              screen: screen.width + 'x' + screen.height,
-              user: 'Christopher2k',
-              utcoffset: '2',
-            }),
-        )
-      }
-      sessionStorage.setItem('_swa', '1')
-    </script>
   </body>
 </html>
